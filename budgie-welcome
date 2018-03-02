@@ -1498,6 +1498,28 @@ class WelcomeApp(object):
 
         self._window = w
         self.webkit = mv
+        
+        
+        def prompt_user_snap():
+            dialog = Gtk.MessageDialog(w, 0, Gtk.MessageType.INFO,
+                Gtk.ButtonsType.YES_NO, _("Snap package is available"))
+            dialog.format_secondary_text( _("A snap package is now available that will be constantly updated with the\n" \
+                                            " latest information about Ubuntu Budgie and software which can be installed.\n" \
+                                            "It is recommended that this be installed and this version of budgie-welcome be removed.\n" \
+                                            "To install the snap run in a terminal:\n" \
+                                            "     sudo snap install ubuntu-budgie-welcome --classic\n" \
+                                            "To uninstall this version run in a terminal:\n" \
+                                            "     sudo apt purge budgie-welcome\n"
+                                            "Do you want this message to appear the next time budgie-welcome is run?"))
+            response = dialog.run()
+            
+            if response == Gtk.ResponseType.NO:
+                a = 1
+            dialog.destroy()
+            
+        if 'SNAP' not in os.environ and systemstate.codename not in ['xenial']: #, 'artful']:
+            # lets inform the user that the snap package is recommended
+            GLib.idle_add(prompt_user_snap)
 
     def run(self):
         signal.signal(signal.SIGINT, signal.SIG_DFL)
