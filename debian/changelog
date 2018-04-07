@@ -1,7 +1,9 @@
 budgie-welcome (0.6.1) bionic; urgency=medium
 
-  * Bug-fix
-    - Ensure that we inform the user that the SNAP budgie-welcome
+  * Bug-fix release
+    - 18.04 replaces budgie-welcome with a SNAP package. After an upgrade
+      the deb version of budgie-welcome is left in-place.
+      Inform the user that the SNAP budgie-welcome
       package needs to be installed. Only with the user consent
       is the package installed.
   * Packaging Changes
