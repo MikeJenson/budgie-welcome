@@ -1,3 +1,16 @@
+budgie-welcome (0.6.1) bionic; urgency=medium
+
+  * Bug-fix
+    - Ensure that we inform the user that the SNAP budgie-welcome
+      package needs to be installed. Only with the user consent
+      is the package installed.
+  * Packaging Changes
+    - debian/control changed the dependencies to run the zenity based
+      script
+    - debian/rules simplify the installation for the script install
+
+ -- David Mohammed <fossfreedom@ubuntu.com>  Sat, 07 Apr 2018 21:29:02 +0100
+
 budgie-welcome (0.6.0) bionic; urgency=medium
 
   * Bug-fix to display live booting information correctly in tabs
