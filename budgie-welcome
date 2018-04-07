@@ -5,7 +5,7 @@ TEXT="Ubuntu Budgie Welcome is now a SNAP package.\n"
 TEXT+="To complete the installation the budgie-welcome package\n"
 TEXT+="needs to be removed and the ubuntu-budgie-welcome snap package needs to be installed\n\n"
 
-REMIX=$(which budgie-remix-desktop)
+REMIX=$(dpkg -l budgie-remix-desktop | grep "budgie-remix-desktop")
 if [ $? -eq 0 ]; then
   TEXT+="In addition, the Budgie Remix packages need to be removed and the greeter switched to Slick\n\n"
 fi
